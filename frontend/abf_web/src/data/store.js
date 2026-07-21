@@ -1,0 +1,273 @@
+export const storeInfo = {
+  name: 'FotoGear Store',
+  tagline: 'Perlengkapan Fotografi Terpercaya',
+  phone: '0812-3456-7890',
+  email: 'info@fotogearstore.id',
+  address: 'Jl. Kamera No. 12, Jakarta Selatan',
+  whatsapp: '6281234567890',
+}
+
+export const navMenus = [
+  { label: 'Home', page: 'home' },
+  { label: 'Shop', page: 'shop' },
+]
+
+export const sidebarCategories = [
+  {
+    id: 'aksesoris',
+    name: 'Aksesoris',
+    children: ['Battery & Charger', 'Cable/Card Reader', 'Flash/LED/RightLight', 'Memory', 'Paket Lighting', 'Printer', 'Tas & Filter', 'Tripod'],
+  },
+  {
+    id: 'audio',
+    name: 'Audio',
+    children: ['Microphone', 'Speaker', 'Headphone'],
+  },
+  {
+    id: 'kamera',
+    name: 'Kamera',
+    children: ['Mirrorless', 'DSLR', 'Action Cam', 'Pocket Camera', 'Camcorder'],
+  },
+  {
+    id: 'custom-print',
+    name: 'Custom Print',
+    children: [],
+  },
+  {
+    id: 'dji',
+    name: 'DJI',
+    children: ['DJI Air', 'DJI Mini', 'DJI Mavic', 'DJI Osmo'],
+  },
+  {
+    id: 'drone',
+    name: 'Drone',
+    children: ['Racing Drone', 'Photography Drone', 'Spare Parts'],
+  },
+  {
+    id: 'laptop',
+    name: 'Laptop',
+    children: [],
+  },
+  {
+    id: 'lensa',
+    name: 'Lensa',
+    children: ['Prime Lens', 'Zoom Lens', 'Macro', 'Wide Angle', 'Telekonverter'],
+  },
+  {
+    id: 'smartwatch',
+    name: 'Smart Watch',
+    children: [],
+  },
+  {
+    id: 'smarthome',
+    name: 'SmartHome',
+    children: [],
+  },
+  {
+    id: 'stabilizer',
+    name: 'Stabilizer',
+    children: ['Gimbal Kamera', 'Gimbal HP', 'Video Rig'],
+  },
+]
+
+export const categories = [
+  { id: 'kamera', name: 'Kamera', icon: '📷' },
+  { id: 'drone', name: 'Drone', icon: '🚁' },
+  { id: 'lensa', name: 'Lensa', icon: '🔭' },
+  { id: 'lighting', name: 'Lighting', icon: '💡' },
+  { id: 'tripod', name: 'Tripod', icon: '🎬' },
+  { id: 'tas', name: 'Tas Kamera', icon: '🎒' },
+  { id: 'memory', name: 'Memory Card', icon: '💾' },
+  { id: 'aksesoris', name: 'Aksesoris', icon: '🔌' },
+]
+
+export const banners = [
+  {
+    id: 1,
+    title: 'Mega Sale Kamera & Drone',
+    subtitle: 'Diskon hingga 40% — Gratis ongkir Jabodetabek',
+    cta: 'Belanja Sekarang',
+    badge: 'FLASH SALE',
+    gradient: 'linear-gradient(135deg, #d4736a 0%, #c2574a 50%, #c9a55c 100%)',
+    image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 2,
+    title: 'Paket Content Creator',
+    subtitle: 'Kamera mirrorless + mic + lighting — hemat jutaan',
+    cta: 'Lihat Paket',
+    badge: 'BEST DEAL',
+    gradient: 'linear-gradient(135deg, #4a4542 0%, #b85c52 55%, #d4a853 100%)',
+    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80',
+  },
+  {
+    id: 3,
+    title: 'Drone Terbaru 2026',
+    subtitle: 'DJI & Autel — garansi resmi, cicilan 0%',
+    cta: 'Eksplor Drone',
+    badge: 'NEW ARRIVAL',
+    gradient: 'linear-gradient(135deg, #c96b5e 0%, #a8483d 45%, #e5c989 100%)',
+    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=1600&q=80',
+  },
+]
+
+export const products = [
+  {
+    id: 1,
+    name: 'Sony Alpha A7 IV Body Only — Full Frame Mirrorless',
+    category: 'kamera',
+    price: 28999000,
+    originalPrice: 32999000,
+    rating: 4.9,
+    sold: 128,
+    location: 'Jakarta Selatan',
+    badge: 'Terlaris',
+    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop',
+  },
+  {
+    id: 2,
+    name: 'DJI Mini 4 Pro Fly More Combo — Drone 4K HDR',
+    category: 'drone',
+    price: 12499000,
+    originalPrice: 13999000,
+    rating: 4.8,
+    sold: 256,
+    location: 'Jakarta Selatan',
+    badge: 'Diskon',
+    image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=400&h=400&fit=crop',
+  },
+  {
+    id: 3,
+    name: 'Canon RF 24-70mm f/2.8L IS USM — Lensa Zoom Pro',
+    category: 'lensa',
+    price: 31500000,
+    originalPrice: null,
+    rating: 4.9,
+    sold: 45,
+    location: 'Jakarta Selatan',
+    badge: null,
+    image: 'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=400&fit=crop',
+  },
+  {
+    id: 4,
+    name: 'Godox SL-60W LED Video Light — Studio Lighting',
+    category: 'lighting',
+    price: 1899000,
+    originalPrice: 2299000,
+    rating: 4.7,
+    sold: 312,
+    location: 'Jakarta Selatan',
+    badge: 'Promo',
+    image: 'https://images.unsplash.com/photo-1598488035139-bdcb74f617ec?w=400&h=400&fit=crop',
+  },
+  {
+    id: 5,
+    name: 'Fujifilm X-T5 Body — 40MP APS-C Mirrorless',
+    category: 'kamera',
+    price: 19999000,
+    originalPrice: 21999000,
+    rating: 4.8,
+    sold: 89,
+    location: 'Jakarta Selatan',
+    badge: 'Baru',
+    image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&h=400&fit=crop',
+  },
+  {
+    id: 6,
+    name: 'DJI RS 4 Pro Gimbal Stabilizer — 3 Axis',
+    category: 'aksesoris',
+    price: 7499000,
+    originalPrice: 8299000,
+    rating: 4.8,
+    sold: 167,
+    location: 'Jakarta Selatan',
+    badge: 'Diskon',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+  },
+  {
+    id: 7,
+    name: 'Manfrotto Befree Advanced Tripod — Carbon Fiber',
+    category: 'tripod',
+    price: 4299000,
+    originalPrice: null,
+    rating: 4.6,
+    sold: 78,
+    location: 'Jakarta Selatan',
+    badge: null,
+    image: 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop',
+  },
+  {
+    id: 8,
+    name: 'SanDisk Extreme Pro 256GB SDXC UHS-I V30',
+    category: 'memory',
+    price: 899000,
+    originalPrice: 1099000,
+    rating: 4.9,
+    sold: 520,
+    location: 'Jakarta Selatan',
+    badge: 'Terlaris',
+    image: 'https://images.unsplash.com/photo-1597872200969-2b65d08effb6?w=400&h=400&fit=crop',
+  },
+  {
+    id: 9,
+    name: 'Nikon Z6 III Body — Hybrid Mirrorless 6K',
+    category: 'kamera',
+    price: 34999000,
+    originalPrice: 37999000,
+    rating: 4.9,
+    sold: 34,
+    location: 'Jakarta Selatan',
+    badge: 'New',
+    image: 'https://images.unsplash.com/photo-1495121553079-4c61bcce4052?w=400&h=400&fit=crop',
+  },
+  {
+    id: 10,
+    name: 'Autel EVO Lite+ Premium Bundle — Drone 1 Inch',
+    category: 'drone',
+    price: 15999000,
+    originalPrice: 17999000,
+    rating: 4.7,
+    sold: 62,
+    location: 'Jakarta Selatan',
+    badge: 'Diskon',
+    image: 'https://images.unsplash.com/photo-1508614581291-4e0c4c0c0b0b?w=400&h=400&fit=crop',
+  },
+  {
+    id: 11,
+    name: 'Peak Design Everyday Backpack 30L — Tas Kamera',
+    category: 'tas',
+    price: 3499000,
+    originalPrice: 3999000,
+    rating: 4.8,
+    sold: 143,
+    location: 'Jakarta Selatan',
+    badge: 'Promo',
+    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
+  },
+  {
+    id: 12,
+    name: 'Rode VideoMic Pro+ — Shotgun Microphone',
+    category: 'aksesoris',
+    price: 4299000,
+    originalPrice: null,
+    rating: 4.7,
+    sold: 198,
+    location: 'Jakarta Selatan',
+    badge: null,
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=400&fit=crop',
+  },
+]
+
+export function formatPrice(value) {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(value)
+}
+
+export function calcDiscount(price, originalPrice) {
+  if (!originalPrice || originalPrice <= price) return 0
+  return Math.round(((originalPrice - price) / originalPrice) * 100)
+}
