@@ -1,10 +1,19 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { defaultStoreForm } from '../data/storeForm'
+import { fetchStoreProfile, saveStoreProfile } from '../services/storeProfileApi'
 
 const form = reactive({ ...defaultStoreForm })
-const logoPreview = ref('')
+const logoPreview = ref(form.logoUrl || '')
 const savedMessage = ref('')
+const errorMessage = ref('')
+const isLoading = ref(false)
+const isSaving = ref(false)
+
+function applyFormData(data = {}) {
+  Object.assign(form, { ...defaultStoreForm, ...data })
+  logoPreview.value = form.logoUrl || ''
+}
 
 function onLogoChange(event) {
   const file = event.target.files?.[0]
@@ -23,18 +32,49 @@ function removeLogo() {
   form.logoUrl = ''
 }
 
-function handleSave() {
-  // Placeholder — API nanti
-  savedMessage.value = 'Perubahan disimpan secara lokal (belum ke database).'
-  setTimeout(() => {
-    savedMessage.value = ''
-  }, 3000)
+async function loadProfile() {
+  isLoading.value = true
+  errorMessage.value = ''
+
+  try {
+    const profile = await fetchStoreProfile()
+    if (profile) {
+      applyFormData(profile)
+    }
+  } catch (error) {
+    errorMessage.value = error.message || 'Gagal memuat data toko dari server.'
+  } finally {
+    isLoading.value = false
+  }
 }
+
+async function handleSave() {
+  isSaving.value = true
+  savedMessage.value = ''
+  errorMessage.value = ''
+
+  try {
+    const profile = await saveStoreProfile({ ...form })
+    applyFormData(profile)
+    savedMessage.value = 'Data toko berhasil disimpan ke server.'
+    setTimeout(() => {
+      savedMessage.value = ''
+    }, 3000)
+  } catch (error) {
+    errorMessage.value = error.message || 'Gagal menyimpan data toko ke server.'
+  } finally {
+    isSaving.value = false
+  }
+}
+
+onMounted(loadProfile)
 </script>
 
 <template>
   <div class="store-page">
     <p v-if="savedMessage" class="toast">{{ savedMessage }}</p>
+    <p v-if="errorMessage" class="toast toast-error">{{ errorMessage }}</p>
+    <p v-if="isLoading" class="form-hint">Memuat data toko dari server...</p>
 
     <form class="form-stack" @submit.prevent="handleSave">
       <!-- Logo -->
@@ -162,8 +202,10 @@ function handleSave() {
       </section>
 
       <div class="form-actions">
-        <button type="submit" class="btn-primary">Simpan Perubahan</button>
-        <p class="form-hint">Data belum tersimpan ke server — koneksi API menyusul.</p>
+        <button type="submit" class="btn-primary" :disabled="isSaving || isLoading">
+          {{ isSaving ? 'Menyimpan...' : 'Simpan Perubahan' }}
+        </button>
+        <p class="form-hint">Form ini sekarang tersambung ke endpoint `Store/Profile/save`.</p>
       </div>
     </form>
   </div>

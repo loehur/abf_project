@@ -177,6 +177,14 @@ select {
   box-shadow: 0 2px 8px rgba(194, 87, 74, 0.2);
 }
 
+.logo-image {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(194, 87, 74, 0.2);
+}
+
 .logo-text {
   display: flex;
   flex-direction: column;
@@ -826,6 +834,13 @@ select {
   font-weight: 800;
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
+}
+
+.footer-logo-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .footer-brand p {

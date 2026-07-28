@@ -1,11 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-import { storeInfo } from '../../data/store'
 import { usePage } from '../../composables/usePage'
+import { useStoreProfile } from '../../composables/useStoreProfile'
 
 const searchQuery = ref('')
 const menuOpen = ref(false)
-const { currentPage, navigate } = usePage()
+const { navigate } = usePage()
+const { storeProfile } = useStoreProfile()
 
 function toggleMenu() {
   menuOpen.value = !menuOpen.value
@@ -16,10 +17,10 @@ function toggleMenu() {
   <header class="site-header">
     <div class="top-bar">
       <div class="container top-bar-inner">
-        <p class="top-text">📍 {{ storeInfo.address }}</p>
+        <p class="top-text">📍 {{ storeProfile.address }}</p>
         <div class="top-links">
           <a href="#">Bantuan</a>
-          <a :href="`https://wa.me/${storeInfo.whatsapp}`" target="_blank" rel="noopener">WhatsApp</a>
+          <a :href="`https://wa.me/${storeProfile.whatsapp}`" target="_blank" rel="noopener">WhatsApp</a>
           <a href="#">Lacak Pesanan</a>
         </div>
       </div>
@@ -34,10 +35,16 @@ function toggleMenu() {
         </button>
 
         <button class="logo" @click="navigate('home')">
-          <span class="logo-icon">📸</span>
+          <img
+            v-if="storeProfile.logoUrl"
+            class="logo-image"
+            :src="storeProfile.logoUrl"
+            :alt="storeProfile.name"
+          />
+          <span v-else class="logo-icon">📸</span>
           <div class="logo-text">
-            <strong>{{ storeInfo.name }}</strong>
-            <small>{{ storeInfo.tagline }}</small>
+            <strong>{{ storeProfile.name }}</strong>
+            <small>{{ storeProfile.tagline }}</small>
           </div>
         </button>
 

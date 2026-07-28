@@ -1,5 +1,7 @@
 <script setup>
-import { storeInfo } from '../../data/store'
+import { useStoreProfile } from '../../composables/useStoreProfile'
+
+const { storeProfile } = useStoreProfile()
 </script>
 
 <template>
@@ -7,17 +9,22 @@ import { storeInfo } from '../../data/store'
     <div class="container footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <span>📸</span>
-          <strong>{{ storeInfo.name }}</strong>
+          <img
+            v-if="storeProfile.logoUrl"
+            class="footer-logo-image"
+            :src="storeProfile.logoUrl"
+            :alt="storeProfile.name"
+          />
+          <span v-else>📸</span>
+          <strong>{{ storeProfile.name }}</strong>
         </div>
         <p>
-          Toko perlengkapan fotografi terpercaya. Kamera, drone, lensa,
-          lighting, dan aksesoris original dengan garansi resmi.
+          {{ storeProfile.description }}
         </p>
         <div class="social-links">
-          <a href="#">Instagram</a>
-          <a href="#">TikTok</a>
-          <a href="#">YouTube</a>
+          <a v-if="storeProfile.instagram" :href="storeProfile.instagram" target="_blank" rel="noopener">Instagram</a>
+          <a v-if="storeProfile.tiktok" :href="storeProfile.tiktok" target="_blank" rel="noopener">TikTok</a>
+          <a v-if="storeProfile.youtube" :href="storeProfile.youtube" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
 
@@ -46,17 +53,17 @@ import { storeInfo } from '../../data/store'
       <div>
         <h4>Hubungi Kami</h4>
         <ul class="contact-list">
-          <li>📞 {{ storeInfo.phone }}</li>
-          <li>✉️ {{ storeInfo.email }}</li>
-          <li>📍 {{ storeInfo.address }}</li>
-          <li>🕐 Sen–Sab, 09.00–18.00 WIB</li>
+          <li>📞 {{ storeProfile.phone }}</li>
+          <li>✉️ {{ storeProfile.email }}</li>
+          <li>📍 {{ storeProfile.address }}</li>
+          <li>🕐 {{ storeProfile.openHours }}</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <p>&copy; 2026 {{ storeInfo.name }}. Semua hak dilindungi.</p>
+        <p>&copy; 2026 {{ storeProfile.name }}. Semua hak dilindungi.</p>
         <div class="payment-badges">
           <span>BCA</span>
           <span>Mandiri</span>
