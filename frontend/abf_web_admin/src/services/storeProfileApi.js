@@ -1,4 +1,4 @@
-const API_URL = '/api/Store/Profile'
+const API_URL = 'https://api.asiabarufoto.com/Store/Profile'
 
 async function parseResponse(response) {
   const payload = await response.json().catch(() => null)

@@ -1,6 +1,8 @@
 import { reactive } from 'vue'
 import { storeInfo } from '../data/store'
 
+const API_URL = 'https://api.asiabarufoto.com/Store/Profile'
+
 const defaultProfile = {
   name: storeInfo.name,
   tagline: storeInfo.tagline,
@@ -38,7 +40,7 @@ async function loadStoreProfile() {
   state.error = ''
 
   try {
-    const response = await fetch('/api/Store/Profile/show', {
+    const response = await fetch(`${API_URL}/show`, {
       headers: {
         Accept: 'application/json',
       },
